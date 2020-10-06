@@ -148,7 +148,7 @@ body {
 }
 
 .project:hover .code {
-    color: #ddb8b1;
+    color: #df5e45;
   }
 
   .project-image {
@@ -191,7 +191,7 @@ body {
   }
 
   .contact-details {
-    font-size: 3rem;
+    font-size: 5rem;
     text-shadow: 2px 2px 1px #1f1f1f;
     transition: transform 0.3s ease-out;
   }
