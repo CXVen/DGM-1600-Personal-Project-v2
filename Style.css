@@ -55,7 +55,9 @@ body {
     color: var(--main-white);
   }
   
-  img {
+  a img {
+    width: 300px;
+    Height: 300px;
     display: block;
     width: 100%;
   }
