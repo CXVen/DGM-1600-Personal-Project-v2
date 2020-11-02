@@ -15,12 +15,37 @@
     justify-content: space-around;
 }
 
+button {
+    font-size: 30px;
+    font-family: Impact, sans-serif;
+    border-style: hidden;
+    background-color: white;
+    underline
+    
+}
+  
+  button:hover {
+    background-color: white;
+    transform: translatex(8px);
+    transition: transform 0.3s ease-out;
+    
+  }
+
 figure {
     margin: 1rem;
 }
 
-figure img {
-    max-height: 12rem;
+figcaption {
+    font-family: Impact, sans-serif;
+    background-color: black;
+    color: white;
+    text-align: center;
+
 }
 
-
+figure img {
+    max-height: 12rem;
+    border-color: black;
+    border-style: inset;
+    
+}

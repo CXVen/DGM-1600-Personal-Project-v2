@@ -7,28 +7,24 @@ mainHeader.className = 'mainHeader'
 document.body.insertBefore(mainHeader, mainContent)
 
 const maleButton = document.createElement('button')
-maleButton.textContent = 'Male Characters'
+maleButton.textContent = '//Male Characters:'
 mainHeader.appendChild(maleButton)
 
 const femaleButton = document.createElement('button')
-femaleButton.textContent = 'Female Characters'
+femaleButton.textContent = '//Female Characters:'
 mainHeader.appendChild(femaleButton)
 
 const otherButton = document.createElement('button')
-otherButton.textContent = 'Other Characters'
+otherButton.textContent = '//Other Characters:'
 mainHeader.appendChild(otherButton)
 
 const maleCharacters = people.filter((person) => person.gender === 'male')
 
 const femaleCharacters = people.filter((person) => person.gender === 'female')
 
-//const otherCharacters = people.filter((person) => person.gender === 'other')
-
 maleButton.addEventListener('click', () => populateDOM(maleCharacters))
 
 femaleButton.addEventListener('click', () => populateDOM(femaleCharacters))
-
-//otherButton.addEventListener('click', () => populateDOM(otherCharacters))
 
 function populateDOM(characters) {
         removeChildren(mainContent)
@@ -45,7 +41,6 @@ function populateDOM(characters) {
     
         mainContent.appendChild(charFigure)
         })
-
         
         function getLastNumber(url) {
                 let end = url.lastIndexOf('/')
@@ -54,11 +49,10 @@ function populateDOM(characters) {
                         start++
                 }
                 return url.slice(start, end)
-
-                }
+        }
 
                 function removeChildren(container) {
                 while (container.firstChild) 
                 container.removeChild(container.firstChild)
                 }
-        }
+}
