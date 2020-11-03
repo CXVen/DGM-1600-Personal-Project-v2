@@ -1,23 +1,38 @@
 * {
     margin: 0px;
     box-sizing: border-box;
+    
 }
 
 main {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    
 }
 
 figure{
     margin: 1rem;
+
 }
 
 figcaption {
-    background-color: Aqua;
+    font-family: Impact, sans-serif;
+    background-color: black;
+    color: white;
     text-align: center;
+
+}
+
+figure img {
+    border-color: black;
+    border-style: inset;
+    
 }
 
 .main_title {
     text-align: center;
+
 }
+
+    
