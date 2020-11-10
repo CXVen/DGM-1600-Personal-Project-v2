@@ -25,11 +25,10 @@ button {
 }
   
   button:hover {
-    background-color: white;
+    background-color: none;
     transform: translatex(8px);
     transition: transform 0.3s ease-out;
-    
-  }
+    }
 
 figure {
     margin: 1rem;
@@ -46,6 +45,7 @@ figcaption {
 figure img {
     max-height: 12rem;
     border-color: black;
-    border-style: inset;
+    border-style: solid;
+
     
 }

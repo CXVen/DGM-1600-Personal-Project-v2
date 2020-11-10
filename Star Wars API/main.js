@@ -16,3 +16,4 @@ for (let step = 0; step < 7; step++) {
     main.appendChild(figure)
 
 }
+
