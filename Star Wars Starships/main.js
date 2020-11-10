@@ -25,7 +25,7 @@ function populateNav(starships) {
         anchorWrap.addEventListener('click', event => {
             let shipName = event.target.textContent
             const foundShip = starships.find(ship => ship.name === shipName)
-            populateShipView( foundShip)
+            populateShipView(foundShip)
         })
 
         let listItem = document.createElement('li')
