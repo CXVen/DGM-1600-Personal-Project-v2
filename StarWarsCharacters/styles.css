@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.mainHeader {
+    display: flex;
+    justify-content: space-around;
+    margin: 2rem;
+}
+
+#main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+button {
+    font-size: 30px;
+    font-family: Impact, sans-serif;
+    border-style: hidden;
+    background-color: white;
+    underline
+    
+}
+  
+  button:hover {
+    background-color: none;
+    transform: translatex(8px);
+    transition: transform 0.3s ease-out;
+    }
+
+figure {
+    margin: 1rem;
+}
+
+figcaption {
+    font-family: Impact, sans-serif;
+    background-color: black;
+    color: white;
+    text-align: center;
+
+}
+
+figure img {
+    max-height: 12rem;
+    border-color: black;
+    border-style: solid;
+
+    
+}
