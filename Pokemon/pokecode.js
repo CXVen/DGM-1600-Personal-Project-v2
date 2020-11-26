@@ -1,4 +1,4 @@
-// Re-use async function to fetch data from the provided url
+// Reuse async function to fetch data from provided url
 async function getAPIData(url) {
     try {
         const response = await fetch(url)
@@ -9,13 +9,12 @@ async function getAPIData(url) {
     }
 }
 
-// The async getAPIData function
+// Use async to getAPIData funct'
 function loadPage() {
     getAPIData(`https://pokeapi.co/api/v2/pokemon`).then
         (async (data) => {
             for (const pokemon of data.results) {
                 await getAPIData(pokemon.url).then((pokeData) => {
-                    console.log(pokeData)
                     populatePokeCard(pokeData)
                 })
             }
@@ -23,29 +22,49 @@ function loadPage() {
 }
 
 const pokemonGrid = document.querySelector('.pokemonGrid')
+const loadButton = document.querySelector('button')
+
+loadButton.addEventListener('click', () => {
+    loadPage()
+    loadButton.hidden = true
+
+})
+
 
 function populatePokeCard(pokemon) {
     let pokeScene = document.createElement('div')
     pokeScene.className = 'scene'
     let pokeCard = document.createElement('div')
     pokeCard.className = 'card'
-    let cardFront = document.createElement('div')
-    let frontLabel = document.createElement('p')
-    let frontImage = document.createElement('img')
-    let cardBack = document.createElement('div')
-    let backLabel = document.createElement('p')
-
-
-    frontLabel.textContent = pokemon.name
-    frontImage.src = `../images/pokemon/${getImageFileName(pokemon)}.png`
-    backLabel.textContent = `/////Back of Card`
-    cardFront.appendChild(frontImage)
-    cardFront.appendChild(frontLabel)
-    cardBack.appendChild(backLabel)
-    pokeCard.appendChild(cardFront)
-    pokeCard.appendChild(cardBack)
+    pokeCard.addEventListener('click', () => {
+        pokeCard.classList.toggle('is-flipped')
+    })
+    
+    pokeCard.appendChild(populateCardFront(pokemon))
+    pokeCard.appendChild(populateCardBack(pokemon))
     pokeScene.appendChild(pokeCard)
     pokemonGrid.appendChild(pokeScene)
+}
+
+function populateCardFront(pokemon) {
+    let cardFront = document.createElement('div')
+    cardFront.className = `card__face card__face--front`
+    let frontLabel = document.createElement('p')
+    let frontImage = document.createElement('img')
+    frontLabel.textContent = pokemon.name
+    frontImage.src = `../images/pokemon/${getImageFileName(pokemon)}.png`
+    cardFront.appendChild(frontImage)
+    cardFront.appendChild(frontLabel)
+    return cardFront
+}
+
+function populateCardBack(pokemon) {
+    let cardBack = document.createElement('div')
+    cardBack.className = 'card__face card__face--back'
+    let backLabel = document.createElement('p')
+    backLabel.textContent = `I'm the back of the card`
+    cardBack.appendChild(backLabel)
+    return cardBack
 }
 
 function getImageFileName(pokemon) {
@@ -56,4 +75,14 @@ function getImageFileName(pokemon) {
     }
 }
 
-loadPage()
+function Pokemon(name, height, weight, abilities) {
+    this.name = name
+    this.height = height
+    this.weight = weight
+    this.abilities = abilities
+    this.id = 900
+
+    }
+
+let chrisemon = new Pokemon('Chrisemon', 450, 200, ['gorge', 'sleep'])
+console.log(chrisemon)
