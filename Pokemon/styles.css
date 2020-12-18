@@ -1,6 +1,7 @@
 * {
     margin: 0;
     box-sizing: border-box;
+    font-family: sans-serif;
 }
 
 
@@ -17,7 +18,8 @@
 h1 {
     display: flex;
     justify-content: center;
-}
+    background-color: rgb(255, 236, 70);
+  }
 
 .scene {
     width: 200px;
@@ -51,9 +53,10 @@ h1 {
   }
   
   .card__face--back {
-    background: rgba(5, 30, 48, 0.651);
+    background: rgba(5, 30, 48, 0.466);
     transform: rotateY(540deg);
     border-radius: 0.50rem;
+    color: White;
   }
 
   .card.is-flipped {
