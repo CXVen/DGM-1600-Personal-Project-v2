@@ -1,4 +1,4 @@
-// Reuse async function to fetch data from provided url
+
 async function getAPIData(url) {
     try {
         const response = await fetch(url)
@@ -9,7 +9,7 @@ async function getAPIData(url) {
     }
 }
 
-// Use async to getAPIData funct'
+
 function loadPage() {
     getAPIData(`https://pokeapi.co/api/v2/pokemon?limit=25`).then
         (async (data) => {
@@ -74,9 +74,7 @@ function populateCardBack(pokemon) {
     let moveAccuracy = document.createElement('h4')
     let pokeWeight = document.createElement('h5')
     pokeWeight.textContent = `Weight: ${pokemon.weight} lbs.`
-    //const mostAccurateMove = getBestAccuracyAndPower(pokemon.moves)
-    //console.log(mostAccurateMove.move)
-    //moveAccuracy.textContent = `${mostAccurateMove.move.name}`
+    
     cardBack.appendChild(backLabel)
     cardBack.appendChild(abilityList)
     cardBack.appendChild(movesLabel)
@@ -87,12 +85,12 @@ function populateCardBack(pokemon) {
 
 function getBestAccuracyAndPower(pokemoves) {
     return pokemoves.reduce((mostAccurate, move) => {
-        //console.log(move.move.url)
+        
         getAPIData(move.move.url).then
             (async (data) => {
                 console.log(data.accuracy, data.power)
             })
-    //    return mostAccurate.accuracy > move.accuracy ? mostAccurate : move;
+    
       }, {});
 }
 
