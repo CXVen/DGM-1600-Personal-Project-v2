@@ -61,10 +61,39 @@ function populateCardFront(pokemon) {
 function populateCardBack(pokemon) {
     let cardBack = document.createElement('div')
     cardBack.className = 'card__face card__face--back'
-    let backLabel = document.createElement('p')
-    backLabel.textContent = `I'm the back of the card`
+    let backLabel = document.createElement('h3')
+    backLabel.textContent = `Abilities:`
+    let abilityList = document.createElement('ul')
+    pokemon.abilities.forEach(ability => {
+        let abilityName = document.createElement('li')
+        abilityName.textContent = ability.ability.name
+        abilityList.appendChild(abilityName)
+    })
+    let movesLabel = document.createElement('h3')
+    movesLabel.textContent = 'Stats:'
+    let moveAccuracy = document.createElement('h4')
+    let pokeWeight = document.createElement('h5')
+    pokeWeight.textContent = `Weight: ${pokemon.weight} lbs.`
+    //const mostAccurateMove = getBestAccuracyAndPower(pokemon.moves)
+    //console.log(mostAccurateMove.move)
+    //moveAccuracy.textContent = `${mostAccurateMove.move.name}`
     cardBack.appendChild(backLabel)
+    cardBack.appendChild(abilityList)
+    cardBack.appendChild(movesLabel)
+    cardBack.appendChild(moveAccuracy)
+    cardBack.appendChild(pokeWeight)
     return cardBack
+}
+
+function getBestAccuracyAndPower(pokemoves) {
+    return pokemoves.reduce((mostAccurate, move) => {
+        //console.log(move.move.url)
+        getAPIData(move.move.url).then
+            (async (data) => {
+                console.log(data.accuracy, data.power)
+            })
+    //    return mostAccurate.accuracy > move.accuracy ? mostAccurate : move;
+      }, {});
 }
 
 function getImageFileName(pokemon) {
@@ -75,14 +104,15 @@ function getImageFileName(pokemon) {
     }
 }
 
-function Pokemon(name, height, weight, abilities) {
+function Pokemon(name, height, weight, abilities, moves) {
     this.name = name
     this.height = height
     this.weight = weight
     this.abilities = abilities
     this.id = 900
+    this.moves = moves
+}
 
-    }
-
-let chrisemon = new Pokemon('Chrisemon', 450, 200, ['gorge', 'sleep'])
-console.log(chrisemon)
+function createNewPokemon(name) {
+  return new Pokemon(name, 450, 200, ['gorge', 'sleep', 'cough'], ['thunder', 'toxic puke'])
+}
