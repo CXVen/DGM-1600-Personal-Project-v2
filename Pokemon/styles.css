@@ -9,7 +9,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    background-color: rgb(131, 253, 186);
+    
 }
 .pokemon.id {
    position: center;
@@ -18,7 +18,12 @@
 h1 {
     display: flex;
     justify-content: center;
-    background-color: rgb(255, 236, 70);
+    
+    padding: 0.5rem;
+  }
+  div {
+    margin-top: 5px;
+    
   }
 
 .scene {
@@ -50,15 +55,19 @@ h1 {
     background: rgba(230, 38, 13, 0.753);
     border-radius: 0.50rem;
     border: solid black;
+    color: white;
   }
   
   .card__face--back {
-    background: rgba(5, 30, 48, 0.466);
+    background: rgba(71, 133, 102, 0.993);
     transform: rotateY(540deg);
     border-radius: 0.50rem;
     color: White;
+    
+   
   }
 
   .card.is-flipped {
     transform: rotateY(540deg);
   }
+  
